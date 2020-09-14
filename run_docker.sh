@@ -4,7 +4,7 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-docker build -t sjhw:project4 .
+docker build --tag sjhw:project4 .
 [[ $? != 0 ]] && exit $?
 
 # Step 2:

@@ -1,1 +1,23 @@
-<paste log output from Kubernetes-mediated prediction, here>
+
+$ ./run_kubernetes.sh
+RUN: kubectl run project4 --image=qmkey/udacity:project4
+pod/project4 created
+RUN: kubectl get pods --output=wide
+NAME       READY   STATUS              RESTARTS   AGE   IP       NODE       NOMINATED NODE   READINESS GATES
+project4   0/1     ContainerCreating   0          0s    <none>   minikube   <none>           <none>
+RUN: kubectl port-forward pod/project4 8000:80
+error: unable to forward port because pod is not running. Current status=Pending
+$ 
+$ ./run_kubernetes.sh
+RUN: kubectl run project4 --image=qmkey/udacity:project4
+Error from server (AlreadyExists): pods "project4" already exists
+RUN: kubectl get pods --output=wide
+NAME       READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
+project4   1/1     Running   0          8m21s   172.18.0.3   minikube   <none>           <none>
+RUN: kubectl port-forward pod/project4 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+^C
+$
+
