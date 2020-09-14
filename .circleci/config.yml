@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.7.3
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -30,23 +30,23 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python3 -m venv venv
-            . venv/bin/activate
+            python3.7 -m venv ~/.p4-circleci
+            . ~/.p4-circleci/bin/activate
             pip install -r requirements.txt
       - save_cache:
           paths:
-            - ./venv
+            - ~/.p4-circleci
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            . ~/.p4-circleci/bin/activate
             make test
       # run lints!
       - run:
           name: run lint
           command: |
-            . venv/bin/activate
+            . ~/.p4-circleci/bin/activate
             make lint
