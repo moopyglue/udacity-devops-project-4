@@ -1,4 +1,4 @@
-[![sjhw/udacity-devops-project-4](https://circleci.com/gh/sjhw/udacity-devops-project-4.svg?style=svg](https://github.com/sjhw/udacity-devops-project-4)
+[![sjhw/udacity-devops-project-4](https://circleci.com/gh/sjhw/udacity-devops-project-4.svg?style=svg)](https://github.com/sjhw/udacity-devops-project-4)
 
 ## Project Overview
 
