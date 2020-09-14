@@ -1,0 +1,24 @@
+
+00:17:41 simon@newt /home/simon/proj4 f814013
+$ ./upload_docker.sh
+Docker Source ID and Image: sjhw:project4
+Docker Destination ID and Image: qmkey/udacity:project4
+The push refers to repository [docker.io/qmkey/udacity]
+9ec964160350: Pushed
+4d5010fcba15: Pushed
+c45fe04981a0: Layer already exists
+d93d21d505e4: Layer already exists
+66a7d8b9f719: Layer already exists
+799a7872c8c7: Layer already exists
+715450468940: Layer already exists
+c9d608035aef: Layer already exists
+bb9c02680a15: Layer already exists
+a637c551a0da: Layer already exists
+2c8d31157b81: Layer already exists
+7b76d801397d: Layer already exists
+f32868cde90b: Layer already exists
+0db06dff9d9a: Layer already exists
+project4: digest: sha256:d1c9860d31a3c9c8d43d059c5e156ec64fdcf4a48e67ae5873618c4a9cc0a7f8 size: 3267
+
+00:18:01 simon@newt /home/simon/proj4 f814013
+$ 

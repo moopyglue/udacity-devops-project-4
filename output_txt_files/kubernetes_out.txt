@@ -1,4 +1,5 @@
 
+23:47:12 simon@newt /home/simon/proj4 f814013
 $ ./run_kubernetes.sh
 RUN: kubectl run project4 --image=qmkey/udacity:project4
 pod/project4 created
@@ -7,17 +8,41 @@ NAME       READY   STATUS              RESTARTS   AGE   IP       NODE       NOMI
 project4   0/1     ContainerCreating   0          0s    <none>   minikube   <none>           <none>
 RUN: kubectl port-forward pod/project4 8000:80
 error: unable to forward port because pod is not running. Current status=Pending
-$ 
+
+23:47:23 simon@newt /home/simon/proj4 1 f814013
 $ ./run_kubernetes.sh
 RUN: kubectl run project4 --image=qmkey/udacity:project4
 Error from server (AlreadyExists): pods "project4" already exists
 RUN: kubectl get pods --output=wide
-NAME       READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
-project4   1/1     Running   0          8m21s   172.18.0.3   minikube   <none>           <none>
+NAME       READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+project4   1/1     Running   0          18s   172.18.0.3   minikube   <none>           <none>
 RUN: kubectl port-forward pod/project4 8000:80
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000
 ^C
+23:47:56 simon@newt /home/simon/proj4 f814013
+$ kubectl logs project4
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 251-878-122
+[2020-09-14 22:47:51,973] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2020-09-14 22:47:51,993] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-09-14 22:47:52,005] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2020-09-14 22:47:52,010] INFO in app: Prediction being returned: [20.35373177134412]
+127.0.0.1 - - [14/Sep/2020 22:47:52] "POST /predict HTTP/1.1" 200 -
+
+23:48:08 simon@newt /home/simon/proj4 f814013
 $
 
